@@ -362,7 +362,9 @@ class _HeroMenuState extends State<HeroMenu> {
       child: Padding(
         padding: const EdgeInsets.only(left: 12, top: 25.0, right: 12),
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(     
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+            childAspectRatio: MediaQuery.of(context).size.width /
+              (MediaQuery.of(context).size.height / 1.7),   
           mainAxisSpacing:10,     
           crossAxisCount: 5),
           itemCount: heromenuName.length-1,

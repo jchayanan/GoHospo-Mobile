@@ -64,8 +64,10 @@ class _WebScraperAppState extends State<WebScraperApp> {
 
   @override
   Widget build(BuildContext context) {
-    print(productLink);
     print(productPrice);
+    print('................');
+    print(productPrice?.sublist(3));
+    productPrice = productPrice?.sublist(3);
     return Container(
       child: productNames == null || productImage == null
           ? Center(
@@ -123,7 +125,7 @@ class _WebScraperAppState extends State<WebScraperApp> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          productPrice?[index]['title'],
+                                          productPrice?[index]['title'].substring(0, productPrice?[index]['title'].length - 3),
                                           style: TextStyle(
                                               color: Colors.red.shade900,
                                               fontWeight: FontWeight.bold),
