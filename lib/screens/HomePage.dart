@@ -230,11 +230,9 @@ class Greeting extends StatelessWidget {
 //////////////////////// Home Carousel /////////////////////////
 
 final List<Widget> cardBanner = [
-  CardBanner(title: 'โปรแกรมตรวจ DNA พรีเมียม วิเคราะห์ความเสี่ยงในการเกิดโรคมะเร็ง'),
   CardBanner(title: 'โปรแกรมตรวจ DNA พรีเมียม (Premium DNA) วิเคราะห์ความเสี่ยงในการเกิดโรคมะเร็ง'),
-  CardBanner(title: 'โปรแกรมตรวจ DNA พรีเมียม (Premium DNA) วิเคราะห์ความเสี่ยงในการเกิดโรคมะเร็ง'),
-  CardBanner(title: 'โปรแกรมตรวจ DNA พรีเมียม (Premium DNA) วิเคราะห์ความเสี่ยงในการเกิดโรคมะเร็ง'),
-  CardBanner(title: 'โปรแกรมตรวจ DNA พรีเมียม (Premium DNA) วิเคราะห์ความเสี่ยงในการเกิดโรคมะเร็ง'),
+  CardBanner(title: 'โปรแกรมตรวจ DNA ไลฟ์สไตล์เฉพาะบุคคล (Life style DNA)', img: 'assets/images/cardbanner2.jpg'),
+  CardBanner(title: 'โปรแกรมตรวจ DNA หาความเสี่ยงของการเกิดโรค (Health DNA)', img: 'assets/images/cardbanner3.jpg'),
 ];
 
 class HomeCarouselSlider extends StatefulWidget {
@@ -365,7 +363,7 @@ class _HeroMenuState extends State<HeroMenu> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
             childAspectRatio: MediaQuery.of(context).size.width /
               (MediaQuery.of(context).size.height / 1.7),   
-          mainAxisSpacing:10,     
+          mainAxisSpacing:5,     
           crossAxisCount: 5),
           itemCount: heromenuName.length-1,
               physics: new NeverScrollableScrollPhysics(),

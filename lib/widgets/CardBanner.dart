@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class CardBanner extends StatelessWidget {
   final String title;
+  final String img;
 
-  CardBanner({this.title=''});
+  CardBanner({this.title='', this.img='assets/images/cardbanner.jpg'});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CardBanner extends StatelessWidget {
               width: 150,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.asset('assets/images/cardbanner.jpg',
+                  child: Image.asset(img,
                       fit: BoxFit.cover)),
             ),
           ),

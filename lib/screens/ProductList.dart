@@ -68,120 +68,127 @@ class _WebScraperAppState extends State<WebScraperApp> {
     print('................');
     print(productPrice?.sublist(3));
     productPrice = productPrice?.sublist(3);
-    return Container(
-      child: productNames == null || productImage == null
-          ? Center(
-              child:
-                  CircularProgressIndicator(), // Loads Circular Loading Animation
-            )
-          : ListView.builder(
-              itemCount: (productNames!.length) - 1,
-              itemBuilder: (BuildContext context, int index) {
-                // Attributes are in the form of List<Map<String, dynamic>>.
-                Map<String, dynamic> image = productImage?[index]['attributes'];
-                Map<String, dynamic> attributes =
-                    productLink![index]['attributes'];
-                return Container(
-                    margin: EdgeInsets.all(10),
-                    height: 200,
-                    width: MediaQuery.of(context).size.width * 0.90,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Card(
-                      elevation: 5,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Container(
-                            width: 150,
-                            height: 200,
-                            child: Image.network(
-                              image['data-src'],
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(productNames?[index]['title'],
-                                      softWrap: true,
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold)),
-                                  Text(
-                                      productDescriptions?[index]['title']
-                                          .substring(7),
-                                      style: TextStyle(fontSize: 12)),
-                                  Expanded(
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          productPrice?[index]['title'].substring(0, productPrice?[index]['title'].length - 3),
-                                          style: TextStyle(
-                                              color: Colors.red.shade900,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            ElevatedButton(
-                                                focusNode: FocusNode(),
-                                                onPressed: () {launch(webScraper.baseUrl! +
-                                          attributes['href']);},
-                                                style: ButtonStyle(
-                                                  shape: MaterialStateProperty
-                                                      .all<RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                    side: BorderSide(
-                                                        color: Colors.teal),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5),
-                                                  )),
-                                                  backgroundColor:
-                                                      MaterialStateProperty
-                                                          .resolveWith<Color>(
-                                                    (Set<MaterialState>
-                                                        states) {
-                                                      if (states.contains(
-                                                          MaterialState
-                                                              .pressed))
-                                                        return Colors
-                                                            .teal.shade200;
-                                                      return Colors.white;
-                                                    },
-                                                  ),
-                                                ),
-                                                child: Text('Description',
-                                                    style: TextStyle(
-                                                        color: Colors.teal))),
-                                            Text('Rating ${productRating?[index]['title']}',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.deepOrange)),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Container(
+        height:MediaQuery.of(context).size.height - 335,
+        child: productNames == null || productImage == null || productLink == null || productDescriptions == null || productPrice == null || productRating == null
+            ? Center(
+                child:
+                    CircularProgressIndicator(), // Loads Circular Loading Animation
+              )
+            : ListView.builder(
+                itemCount: (productNames!.length) - 1,
+                itemBuilder: (BuildContext context, int index) {
+                  // Attributes are in the form of List<Map<String, dynamic>>.
+                  Map<String, dynamic> image = productImage?[index]['attributes'];
+                  Map<String, dynamic> attributes =
+                      productLink![index]['attributes'];
+                  return Container(
+                      margin: EdgeInsets.all(10),
+                      height: 180,
+                      width: MediaQuery.of(context).size.width * 0.90,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Card(
+                        elevation: 5,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              width: 150,
+                              height: 200,
+                              child: Image.network(
+                                image['data-src'],
+                                fit: BoxFit.cover,
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                    ));
-              }),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(productNames?[index]['title'],
+                                        softWrap: true,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold)),
+                                    Text(
+                                        productDescriptions?[index]['title']
+                                            .substring(7),
+                                        style: TextStyle(fontSize: 10)),
+                                    Expanded(
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(bottom: 3.0),
+                                            child: Text(
+                                              productPrice?[index]['title'].length == 3 ? " " : productPrice![index]['title'] ,
+                                              style: TextStyle(
+                                                  color: Colors.red.shade900,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              ElevatedButton(
+                                                  focusNode: FocusNode(),
+                                                  onPressed: () {launch(webScraper.baseUrl! +
+                                            attributes['href']);},
+                                                  style: ButtonStyle(
+                                                    shape: MaterialStateProperty
+                                                        .all<RoundedRectangleBorder>(
+                                                            RoundedRectangleBorder(
+                                                      side: BorderSide(
+                                                          color: Colors.teal),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5),
+                                                    )),
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .resolveWith<Color>(
+                                                      (Set<MaterialState>
+                                                          states) {
+                                                        if (states.contains(
+                                                            MaterialState
+                                                                .pressed))
+                                                          return Colors
+                                                              .teal.shade200;
+                                                        return Colors.white;
+                                                      },
+                                                    ),
+                                                  ),
+                                                  child: Text('Description',
+                                                      style: TextStyle(
+                                                          color: Colors.teal))),
+                                              Text('Rating ${productRating?[index]['title']}',
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      color: Colors.deepOrange)),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ));
+                }),
+      ),
     );
   }
 }
