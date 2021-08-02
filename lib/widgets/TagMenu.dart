@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TagMenu extends StatelessWidget {
-  final int index;
-  TagMenu(this.index);
+  final int _index;
+  TagMenu(this._index);
 
   final List<String> headAndneck = ['หัว','ตา','หู','จมูก','ช่องปาก','ลำคอ','ผม'];
   final List<String> upperParts = ['หลัง','ไหล่','ปอด','กล้ามเนื้อ'];
@@ -31,7 +31,7 @@ class TagMenu extends StatelessWidget {
       8:onlyForGohospo,};
 
     return  Container(
-      child: listOftag[index]!.length == 0 ? null : Ink(
+      child: listOftag[_index]!.length == 0 ? null : Ink(
         width: MediaQuery.of(context).size.width * 0.90,
         height: 145,
         decoration: BoxDecoration(
@@ -44,7 +44,7 @@ class TagMenu extends StatelessWidget {
               childAspectRatio: 10/9,
               mainAxisSpacing: 4,       
             crossAxisCount: 5),
-            itemCount: listOftag[index]!.length,
+            itemCount: listOftag[_index]!.length,
                 physics: new NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Column(
@@ -76,7 +76,7 @@ class TagMenu extends StatelessWidget {
             ),
           
           Expanded(
-              child: Text('tag name',
+              child: Text(listOftag[_index]![index],
                   style: TextStyle(color: Colors.teal, fontSize: 9))),
         ],
       );

@@ -68,10 +68,8 @@ class _WebScraperAppState extends State<WebScraperApp> {
     print('................');
     print(productPrice?.sublist(3));
     productPrice = productPrice?.sublist(3);
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+    return Expanded(
       child: Container(
-        height:MediaQuery.of(context).size.height - 335,
         child: productNames == null || productImage == null || productLink == null || productDescriptions == null || productPrice == null || productRating == null
             ? Center(
                 child:
@@ -168,7 +166,7 @@ class _WebScraperAppState extends State<WebScraperApp> {
                                                       },
                                                     ),
                                                   ),
-                                                  child: Text('Description',
+                                                  child: Text('รายละเอียด',
                                                       style: TextStyle(
                                                           color: Colors.teal))),
                                               Text('Rating ${productRating?[index]['title']}',
