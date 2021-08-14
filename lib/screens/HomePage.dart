@@ -353,7 +353,7 @@ class _HeroMenuState extends State<HeroMenu> {
   Widget build(BuildContext context) {
     return Ink(
       width: MediaQuery.of(context).size.width * 0.90,
-      height: 170,
+      height: 190,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
       ),

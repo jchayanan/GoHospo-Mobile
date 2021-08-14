@@ -83,7 +83,7 @@ class _WebScraperAppState extends State<WebScraperApp> {
                   Map<String, dynamic> attributes =
                       productLink![index]['attributes'];
                   return Container(
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.fromLTRB(10, 5, 10,5 ),
                       height: 180,
                       width: MediaQuery.of(context).size.width * 0.90,
                       decoration: BoxDecoration(

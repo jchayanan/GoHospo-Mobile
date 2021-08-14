@@ -67,6 +67,7 @@ class _ProductPageState extends State<ProductPage> {
       body: Column(
         children: [
           TagMenu(widget.index),
+          SizedBox(height: 15,),
           WebScraperApp(widget.index),
         ],
       )

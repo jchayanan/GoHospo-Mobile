@@ -14,7 +14,47 @@ class TagMenu extends StatelessWidget {
   final List<String> healthProducts = [];
   final List<String> onlyForGohospo = [];
 
-  
+  final List<String> headAndneckImg = [
+    'assets/images/icon/tag/head.jpeg', 
+    'assets/images/icon/tag/eye.jpeg',
+    'assets/images/icon/tag/ear.jpeg',
+    'assets/images/icon/tag/nose.jpeg',
+    'assets/images/icon/tag/mouth.jpeg',
+    'assets/images/icon/tag/throat.jpeg',
+    'assets/images/icon/tag/hair.jpeg'];
+
+  final List<String> upperPartImg = [
+    'assets/images/icon/tag/spine.jpeg',
+    'assets/images/icon/tag/shoulder.jpeg',
+    'assets/images/icon/tag/lungs.jpeg',
+    'assets/images/icon/tag/body.jpeg'];
+
+  final List<String> lowerPartsImg = [
+    'assets/images/icon/tag/body.jpeg',
+    'assets/images/icon/tag/body.jpeg'
+  ];
+
+  final List<String> healthCheckImg = [
+    'assets/images/icon/tag/body.jpeg',
+    'assets/images/icon/tag/body.jpeg',
+    'assets/images/icon/tag/body.jpeg'
+  ];
+
+  final List<String> beautyImg = [
+    'assets/images/icon/tag/body.jpeg',
+    'assets/images/icon/tag/body.jpeg',
+    'assets/images/icon/tag/body.jpeg',
+    'assets/images/icon/tag/body.jpeg'
+  ];
+
+  final List<String> nursingHomeImg = [
+    'assets/images/icon/tag/body.jpeg',
+    'assets/images/icon/tag/body.jpeg'
+  ];
+
+  final List<String> covid19PackageImg = [''];
+  final List<String> healthProductImg = [''];
+  final List<String> onlyForGohospoImg = [''];
   
   @override
   Widget build(BuildContext context) {
@@ -30,6 +70,17 @@ class TagMenu extends StatelessWidget {
       7:healthProducts,
       8:onlyForGohospo,};
 
+    final Map<int, List<String>> listOftagImg = {
+      0:headAndneckImg,
+      1:upperPartImg,
+      2:lowerPartsImg,
+      3:healthCheckImg,
+      4:beautyImg,
+      5:nursingHomeImg,
+      6:covid19PackageImg,
+      7:healthCheckImg,
+      8:onlyForGohospoImg
+    };
     return  Container(
       child: listOftag[_index]!.length == 0 ? null : Ink(
         width: MediaQuery.of(context).size.width * 0.90,
@@ -62,7 +113,7 @@ class TagMenu extends StatelessWidget {
               clipBehavior: Clip.hardEdge,
               color: Colors.transparent,
               child: Ink.image(
-                image: AssetImage('assets/images/icon/healthproduct.png'),
+                image: AssetImage(listOftagImg[_index]![index]),
                 width: 40,
                 height: 40,
                 fit: BoxFit.cover,
